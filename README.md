@@ -38,16 +38,19 @@ A small library that can deep diff two JavaScript Objects, including nested stru
  - [`detailedDiff(original, updatedObj)`](#detaileddiff)
  returns an object with the added, deleted and updated differences
 
+ - [`saveUpdatedArraysDiff(original, updatedObj)`](#detaileddiff)
+   returns the difference of the original and updated objects with arrays from the updated object
+
 ## Importing
 
 ES6 / Babel:
 ``` js
-import { diff, addedDiff, deletedDiff, updatedDiff, detailedDiff } from 'deep-object-diff';
+import { diff, addedDiff, deletedDiff, updatedDiff, detailedDiff, saveUpdatedArraysDiff } from 'deep-object-diff';
 ```
 
 ES5:
 ``` js
-const { diff, addedDiff, deletedDiff, detailedDiff, updatedDiff } = require("deep-object-diff");
+const { diff, addedDiff, deletedDiff, detailedDiff, updatedDiff, saveUpdatedArraysDiff } = require("deep-object-diff");
 
 // OR
 
@@ -56,6 +59,7 @@ const addedDiff = require("deep-object-diff").addedDiff;
 const deletedDiff = require("deep-object-diff").deletedDiff;
 const detailedDiff = require("deep-object-diff").detailedDiff;
 const updatedDiff = require("deep-object-diff").updatedDiff;
+const saveUpdatedArraysDiff = require("deep-object-diff").saveUpdatedArraysDiff;
 ```
 
 ## Usage:
