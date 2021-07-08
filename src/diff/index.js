@@ -1,7 +1,9 @@
 import { isDate, isEmpty, isObject, properObject } from '../utils';
 
-const diff = (lhs, rhs) => {
+const diff = (lhs, rhs, saveArray) => {
   if (lhs === rhs) return {}; // equal return no diff
+
+  if (saveArray && (Array.isArray(lhs) || Array.isArray(rhs))) return rhs; // return updated rhs array
 
   if (!isObject(lhs) || !isObject(rhs)) return rhs; // return updated rhs
 
@@ -20,7 +22,7 @@ const diff = (lhs, rhs) => {
   return Object.keys(r).reduce((acc, key) => {
     if (!l.hasOwnProperty(key)) return { ...acc, [key]: r[key] }; // return added r key
 
-    const difference = diff(l[key], r[key]);
+    const difference = diff(l[key], r[key], saveArray);
 
     if (isObject(difference) && isEmpty(difference) && !isDate(difference)) return acc; // return no diff
 
